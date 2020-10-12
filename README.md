@@ -7,6 +7,6 @@
 
 
 Use 'color' class in style to change inactive pixels color.
-<img src="Color.png" width="500px">
+<br><img src="Color.png" width="500px">
 
 ![footer](https://capsule-render.vercel.app/api?type=slice&color=auto&height=130&section=footer)
