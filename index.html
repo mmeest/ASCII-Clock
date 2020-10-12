@@ -22,10 +22,10 @@
             color: blue;
         }
         #dicitalClock{
-            height: 60%;
+            height: 56%;
         }
         #blackSquare{
-            height: 36%;
+            height: 40%;
             color: blue;
         }
         #thirdRow{
@@ -36,6 +36,10 @@
         }
         td{
             text-align: center;
+        }
+        .color{
+            color:rgb(39, 53, 37);
+            color: blue;
         }
     </style>
 </head>
@@ -51,7 +55,7 @@
             <td id="cell7"></td>
             <td id="cell8"></td>
         </tr>
-        <tr id="blackSquare" valign="bottom">
+        <tr id="blackSquare" valign="middle">
             <td id="cellA" class="tower"></td>
             <td id="cellB" class="tower"></td>
             <td id="cellC" class="tower"></td>
@@ -67,7 +71,7 @@
 </body>
 <script>
     // number symbols(0-9) with line breaks
-    var numbers = [
+    /* var numbers = [
     "□■■■□<br>■□□□■<br>■□□□■<br>■□□□■<br>□■■■□",
     "□□■□□<br>□■■□□<br>□□■□□<br>□□■□□<br>□■■■□",
     "□■■■□<br>■□□□■<br>□□□■□<br>□□■□□<br>■■■■■",
@@ -78,11 +82,27 @@
     "□■■■■<br>□□□□■<br>□□□■□<br>□□■□□<br>□■□□□",
     "□■■■□<br>■□□□■<br>□■■■□<br>■□□□■<br>□■■■□",
     "□■■■□<br>■□□□■<br>□■■■■<br>□□□□■<br>□■■■□",
+    ] */
+
+    // two dots between numbers
+    /* const numbBreak = "□□□<br>□■□<br>□□□<br>□■□<br>□□□"; */
+
+    // number symbols(0-9) with line breaks
+    var numbers = [
+        '<b class="color">□</b>■■■<b class="color">□</b><br>■<b class="color">□</b><b class="color">□</b><b class="color">□</b>■<br>■<b class="color">□</b><b class="color">□</b><b class="color">□</b>■<br>■<b class="color">□</b><b class="color">□</b><b class="color">□</b>■<br><b class="color">□</b>■■■<b class="color">□</b>',
+        '<b class="color">□</b><b class="color">□</b>■<b class="color">□</b><b class="color">□</b><br><b class="color">□</b>■■<b class="color">□</b><b class="color">□</b><br><b class="color">□</b><b class="color">□</b>■<b class="color">□</b><b class="color">□</b><br><b class="color">□</b><b class="color">□</b>■<b class="color">□</b><b class="color">□</b><br><b class="color">□</b>■■■<b class="color">□</b>',
+        '<b class="color">□</b>■■■<b class="color">□</b><br>■<b class="color">□</b><b class="color">□</b><b class="color">□</b>■<br><b class="color">□</b><b class="color">□</b><b class="color">□</b>■<b class="color">□</b><br><b class="color">□</b><b class="color">□</b>■<b class="color">□</b><b class="color">□</b><br>■■■■■',
+        '<b class="color">□</b>■■■<b class="color">□</b><br>■<b class="color">□</b><b class="color">□</b><b class="color">□</b>■<br><b class="color">□</b><b class="color">□</b><b class="color">□</b>■<b class="color">□</b><br>■<b class="color">□</b><b class="color">□</b><b class="color">□</b>■<br><b class="color">□</b>■■■<b class="color">□</b>',
+        '<b class="color">□</b><b class="color">□</b>■<b class="color">□</b>■<br><b class="color">□</b>■<b class="color">□</b><b class="color">□</b>■<br><b class="color">□</b>■■■■<br><b class="color">□</b><b class="color">□</b><b class="color">□</b><b class="color">□</b>■<br><b class="color">□</b><b class="color">□</b><b class="color">□</b><b class="color">□</b>■',
+        '■■■■■<br>■<b class="color">□</b><b class="color">□</b><b class="color">□</b><b class="color">□</b><br>■■■■<b class="color">□</b><br><b class="color">□</b><b class="color">□</b><b class="color">□</b><b class="color">□</b>■<br>■■■■<b class="color">□</b>',
+        '<b class="color">□</b>■■■<b class="color">□</b><br>■<b class="color">□</b><b class="color">□</b><b class="color">□</b><b class="color">□</b><br>■■■■<b class="color">□</b><br>■<b class="color">□</b><b class="color">□</b><b class="color">□</b>■<br><b class="color">□</b>■■■<b class="color">□</b>',
+        '<b class="color">□</b>■■■■<br><b class="color">□</b><b class="color">□</b><b class="color">□</b><b class="color">□</b>■<br><b class="color">□</b><b class="color">□</b><b class="color">□</b>■<b class="color">□</b><br><b class="color">□</b><b class="color">□</b>■<b class="color">□</b><b class="color">□</b><br><b class="color">□</b>■<b class="color">□</b><b class="color">□</b><b class="color">□</b>',
+        '<b class="color">□</b>■■■<b class="color">□</b><br>■<b class="color">□</b><b class="color">□</b><b class="color">□</b>■<br><b class="color">□</b>■■■<b class="color">□</b><br>■<b class="color">□</b><b class="color">□</b><b class="color">□</b>■<br><b class="color">□</b>■■■<b class="color">□</b>',
+        '<b class="color">□</b>■■■<b class="color">□</b><br>■<b class="color">□</b><b class="color">□</b><b class="color">□</b>■<br><b class="color">□</b>■■■■<br><b class="color">□</b><b class="color">□</b><b class="color">□</b><b class="color">□</b>■<br><b class="color">□</b>■■■<b class="color">□</b>',
     ]
 
     // two dots between numbers
-    const numbBreak = "□□□<br>□■□<br>□□□<br>□■□<br>□□□";
-    
+    const numbBreak = '<b class="color">□</b><b class="color">□</b><b class="color">□</b><br><b class="color">□</b>■<b class="color">□</b><br><b class="color">□</b><b class="color">□</b><b class="color">□</b><br><b class="color">□</b>■<b class="color">□</b><br><b class="color">□</b><b class="color">□</b><b class="color">□</b>';
     const blackSquare = "■■■";
 
     function myFunction(){    
@@ -91,6 +111,7 @@
         document.getElementById("cell6").innerHTML = numbBreak;
 
         var d = new Date();                     // getting system date/time
+        console.log(d);
         var hours = d.getHours();               // getting hours from system time
         var minutes = d.getMinutes();           // getting minutes from system time
         var seconds = d.getSeconds();           // getting seconds from system time
@@ -108,7 +129,7 @@
         if(hours < 10){                         // if hours are only one space long
             document.getElementById("cell1").innerHTML = numbers[0];
             document.getElementById("cell2").innerHTML = numbers[cellValue1];
-            document.getElementById("cellA").innerHTML = "_";
+            document.getElementById("cellA").innerHTML = " ";
             document.getElementById("cellB").innerHTML = convertNumbersToSymbols(cellValue1);
         } else {
             document.getElementById("cell1").innerHTML = numbers[cellValue1];
@@ -120,7 +141,7 @@
         if(minutes < 10){                       // if minutes are only one space long
             document.getElementById("cell4").innerHTML = numbers[0];
             document.getElementById("cell5").innerHTML = numbers[cellValue3];
-            document.getElementById("cellD").innerHTML = "_";
+            document.getElementById("cellD").innerHTML = " ";
             document.getElementById("cellE").innerHTML = convertNumbersToSymbols(cellValue3);
         } else {
             document.getElementById("cell4").innerHTML = numbers[cellValue3];
@@ -132,7 +153,7 @@
         if(seconds < 10){                       // if seconds are only one space long
             document.getElementById("cell7").innerHTML = numbers[0];
             document.getElementById("cell8").innerHTML = numbers[cellValue5];
-            document.getElementById("cellG").innerHTML = "_";
+            document.getElementById("cellG").innerHTML = " ";
             document.getElementById("cellH").innerHTML = convertNumbersToSymbols(cellValue5);
         } else {
             document.getElementById("cell7").innerHTML = numbers[cellValue5];
@@ -141,11 +162,9 @@
             document.getElementById("cellH").innerHTML = convertNumbersToSymbols(cellValue6);
         }
 
-        var i = 0;
         function convertNumbersToSymbols(inputValue){
             var outputString = "";
             for(i = 0; i < inputValue; i++){
-                /* console.log(outputString); */
                 if(outputString === ""){
                     outputString = blackSquare;
                 }else if(outputString !== ""){
