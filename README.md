@@ -6,7 +6,7 @@
 * Written in HTML, CSS, JS
 
 
+<br><img src="Color.png" width="500px"><br>
 Use 'color' class in style to change inactive pixels color.
-<br><img src="Color.png" width="500px">
 
 ![footer](https://capsule-render.vercel.app/api?type=slice&color=auto&height=130&section=footer)
